@@ -28,10 +28,12 @@ class Generator
      */
     public function single($prefix = null, $length = 16)
     {
-        if ($length <= strlen($prefix)) {
+        if ($length <= strlen((string)$prefix)) {
             throw InvalidArgumentException::wrongLengthParameters();
         }
-        $number = $prefix.$this->generate($length - strlen($prefix));
+
+        /** @var string $number */
+        $number = $prefix.$this->generate($length - strlen((string)$prefix));
 
         return $number.(new LuhnCalculator)->verificationDigit($number);
     }

@@ -15,5 +15,5 @@ namespace MSBios\CreditCard;
 class Module
 {
     /** @const VERSION */
-    private const VERSION = '1.0.0';
+    private const VERSION = '1.0.1';
 }
